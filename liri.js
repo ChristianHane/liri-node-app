@@ -12,7 +12,7 @@ var proc = process.argv
 var userInput = proc[2];
 var userSearch = proc[3];
 
-const file = fs.createWriteStream('./log.txt');
+var stream = fs.createWriteStream("./log.txt", {flags:'a'});
 
 var acceptableInputs = [
   "my-tweets",
@@ -38,11 +38,9 @@ function checkUserInput(input, search) {
             var creationDate = "Created at: " + tweets[i].created_at;
             console.log(tweet);
             console.log(creationDate);
-            file.write(toString(tweet));
-            file.write(toString(creationDate));            
-            file.end();
-            // fs.appendFileSync('./log.txt', tweet);
-            // fs.appendFileSync('./log.txt', creationDate);
+            stream.write(toString(tweet) + "\n");
+            stream.write(toString(creationDate) + "\n");            
+            stream.end();
           }
         }
       })
@@ -86,9 +84,8 @@ function searchSpotify(query) {
         "Album": data.tracks.items[0].album.name,
       }
       console.log(songInfo);
-      // fs.appendFileSync('./log.txt', JSON.stringify(songInfo));
-      file.write(JSON.stringify(songInfo));
-      file.end();
+      stream.write(JSON.stringify(songInfo) + "\n");
+      stream.end();
       return;
     } else {
       searchSpotify("The Sign");
@@ -115,9 +112,8 @@ function movieSearch(movieTitle) {
         "Plot": newBody.Plot
       }
       console.log(movieInfo);
-      // fs.appendFileSync('./log.txt', JSON.stringify(movieInfo));
-      file.write(JSON.stringify(movieInfo));
-      file.end();
+      stream.write(JSON.stringify(movieInfo) + "\n");
+      stream.end();
       return;
     }
   });
