@@ -1,7 +1,7 @@
 {
   "name": "liri-node-app",
   "version": "1.0.0",
-  "description": "homeword8json",
+  "description": "homework8json",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -10,7 +10,7 @@
     "type": "git",
     "url": "git+https://github.com/ChristianHane/liri-node-app.git"
   },
-  "author": "",
+  "author": "Christian Hane",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/ChristianHane/liri-node-app/issues"
@@ -18,9 +18,9 @@
   "homepage": "https://github.com/ChristianHane/liri-node-app#readme",
   "dependencies": {
     "file-system": "^2.2.2",
-    "jQuery": "^1.7.4",
-    "jquery": "^3.3.1",
-    "jsdom": "^11.6.1",
-    "xmlhttprequest": "^1.8.0"
+    "request": "^2.83.0",
+    "twitter": "^1.7.1",
+    "node-spotify-api": "^1.0.7",
+    "dotenv": "^4.0.0"
   }
 }
