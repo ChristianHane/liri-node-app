@@ -3,7 +3,7 @@ require("dotenv").config();
 var keys = require("./keys.js");
 var Spotify = require('node-spotify-api');
 var Twitter = require('twitter');
-const fs = require('fs');
+var fs = require('fs');
 
 var spotify = new Spotify(keys.spotify);
 var client = new Twitter(keys.twitter);
@@ -12,7 +12,7 @@ var proc = process.argv
 var userInput = proc[2];
 var userSearch = proc[3];
 
-var file = fs.createWriteStream('./log.txt');
+const file = fs.createWriteStream('./log.txt');
 
 var acceptableInputs = [
   "my-tweets",
