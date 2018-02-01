@@ -53,18 +53,22 @@ function checkUserInput(input, search) {
       break;
     case "do-what-it-says": 
       fs.readFile("./random.txt", "utf8", function (err, data) {
-        var commaLoc = data.indexOf(",");
-        var commandArray = [];
-        var valueArray = [];
-        for (var i = 0; i < commaLoc; i++) {
-          commandArray.push(data[i]);
-        };
-        for (var j = commaLoc + 1; j < data.length; j++) {
-          valueArray.push(data[j]);
-        }
-        var value = valueArray.join("");
-        var command = commandArray.join("");
-        checkUserInput(command, value);
+        if (err) {
+          console.log("something went wrong.")
+        } else {
+          var commaLoc = data.indexOf(",");
+          var commandArray = [];
+          var valueArray = [];
+          for (var i = 0; i < commaLoc; i++) {
+            commandArray.push(data[i]);
+          };
+          for (var j = commaLoc + 1; j < data.length; j++) {
+            valueArray.push(data[j]);
+          }
+          var value = valueArray.join("");
+          var command = commandArray.join("");
+          checkUserInput(command, value);
+        } 
       });
       break;
   };
